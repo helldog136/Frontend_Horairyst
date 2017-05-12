@@ -1,0 +1,79 @@
+h1 {
+  font-size: 22px;
+  padding: 0 20px;
+  height: 50px;
+  margin: 1px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td.validCell {
+}
+td.invalidCell {
+  background-color: #C83434;
+}
+
+td.invalidCell.mouseover {
+  background-color: #A80404;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th {
+  margin: 2px;
+  font-size: 16px;
+}
+td.header {
+  max-width: 50px;
+  height: 50px;
+}
+td.content {
+  min-height: 50px;
+  margin-inside: 2px 5px;
+  margin: 2px 5px;
+}
+
+tr.g {
+  background-color: #F0F0F0;
+}
+tr.w {
+  background-color: white;
+}
+
+td.mouseover {
+  background-color: #C0C0C0;
+}
+
+.editModal {
+  width: 640px;
+  height: 480px;
+  margin:2px auto;
+  display:table;
+  position: fixed;
+  left: 0;
+  right:0;
+  top: 40%;
+}
+.modal-header {
+  background-color: #CFCFCF;
+  margin-top: 3px;
+}
+.modal-content {
+  background-color: #F0F0F0;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.modal-footer {
+  background-color: #F0F0F0;
+  margin-bottom: 3px;
+}
+
+.drag-target-border {
+  border: 3px solid black;
+}
+

@@ -1,0 +1,82 @@
+<div class="schedule-matrix">
+  <table class="schedule-matrix-table">
+    <tr>
+      <th></th>
+      <th *ngFor="let session of getMatrix().sessions; let i = index">
+        <input [(ngModel)]="getMatrix().sessions[i]">
+        <button (click)="removeSession(i)">-</button>
+      </th>
+      <th><button (click)="addSession()">+</button></th>
+    </tr>
+    <tr *ngFor="let line of getMatrix().matrix; let j = index" [ngClass]="{g: j%2 == 0, w: j%2 == 1}">
+      <td class="header">{{getMatrix().periods[j]}}</td>
+      <td class="content" draggable droppable *ngFor="let cell of line; let i = index"
+            [dragData]="{'i':i,'j':j}"
+            [ngClass]="{mouseover: cell.student != '' && i == mouseOver.i && j == mouseOver.j,
+                        validCell: getMatrix().matrix[j][i].validity.value,
+                        invalidCell: !getMatrix().matrix[j][i].validity.value}"
+            [dragOverClass]="'drag-target-border'"
+            (onDrop)="onItemDrop($event, i, j)"
+            (dblclick)="edit(editModal, i, j);"
+            (mouseover)="mouseOver.i = i; mouseOver.j = j"
+            (mouseleave)="mouseOver.i = -1; mouseOver.j = -1">
+        <div *ngIf="cell.student != ''">
+          <div>
+            <label>Student: </label>
+            <p>{{cell.student}}</p>
+          </div>
+          <div>
+            <label>Directors: </label>
+            <div *ngFor="let teacher of cell.teachers">
+              <div *ngIf="teacher.role == 'D'">{{teacher.name}}<br/></div>
+            </div>
+          </div>
+          <div>
+            <label>Reporters: </label>
+            <div *ngFor="let teacher of cell.teachers">
+              <div *ngIf="teacher.role == 'R'">{{teacher.name}}<br/></div>
+            </div>
+          </div>
+          <div *ngIf="!cell.validity.value">
+            <label>Invalid because of: </label>
+            <div *ngFor="let reason of cell.validity.reasons">
+              {{reason}}
+            </div>
+          </div>
+        </div>
+      </td>
+      <td (onDrop)="addSession(); onItemDrop($event, getMatrix().sessions.length-1, j)"
+          [dragOverClass]="'drag-target-border'"
+          droppable ></td>
+    </tr>
+  </table>
+  <div class="editModal">
+    <modal #editModal
+           [hideCloseButton]="true"
+           [closeOnEscape]="false"
+           [closeOnOutsideClick]="true"
+           (onClose)="onCloseModal()">
+        <modal-header class="modal-header">
+          <h1>Edit {{getMatrix().sessions[editedSlot.i]}} {{getMatrix().periods[editedSlot.j]}}</h1>
+        </modal-header>
+        <modal-content class="modal-content">
+          <div>
+            <label>Student: </label>
+            <input [(ngModel)]="editedSlot.student" placeholder="student">
+          </div>
+          <div>
+            <label>Teachers: <button (click)="addEmptyTeacher()">+</button></label>
+            <div *ngFor="let teacher of editedSlot.teachers; let l = index">
+              <button class="rmButton" (click)="removeTeacher(l, editModal);">-</button>
+              <input [(ngModel)]="teacher.name" placeholder="name">
+              <input [(ngModel)]="teacher.role" placeholder="role">
+            </div>
+          </div>
+        </modal-content>
+        <modal-footer class="modal-footer">
+          <button class="btn btn-primary" (click)="closeModal(editModal)">Close</button>
+          <button class="eraseBtn" (click)="removeSlot(editedSlot.i, editedSlot.j); editModal.close()">Remove Slot</button>
+        </modal-footer>
+    </modal>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="slot" (click)="doExperiment()">
+    <p>
+        {{ slot.hour }} at {{ slot.room }}
+    </p>
+    <p>
+        {{ slot.student }}
+    </p>
+    <p>
+        <strong>{{ slot.teachers }}</strong>
+    </p>
+</div>
