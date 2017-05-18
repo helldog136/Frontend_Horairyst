@@ -16,7 +16,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
-exports.API_URL = 'http://localhost:4242';
+exports.API_URL = 'http://horairyst.deweireld.be:4722';
 var ScheduleService = (function () {
     function ScheduleService(http) {
         this.http = http;

@@ -23,6 +23,7 @@ var schedule_matrix_component_1 = require("./common/schedule-matrix/schedule.mat
 var http_1 = require("@angular/http");
 var ng2_drag_drop_1 = require("ng2-drag-drop");
 var ng2_modal_1 = require("ng2-modal");
+var constraint_editor_component_1 = require("./constraint-editor/constraint_editor.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,6 +35,7 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             schedule_checker_component_1.ScheduleCheckerComponent,
             schedule_compute_component_1.ScheduleComputeComponent,
+            constraint_editor_component_1.ConstraintEditorComponent,
             home_component_1.HomeComponent,
             slot_detail_component_1.SlotDetailComponent,
             schedule_matrix_component_1.ScheduleMatrixComponent,
@@ -44,7 +46,7 @@ AppModule = __decorate([
             router_1.RouterModule.forRoot([
                 { path: 'home', component: home_component_1.HomeComponent },
                 { path: 'compute', component: schedule_compute_component_1.ScheduleComputeComponent },
-                { path: 'checker', component: schedule_checker_component_1.ScheduleCheckerComponent },
+                { path: 'settings', component: constraint_editor_component_1.ConstraintEditorComponent },
                 { path: '*', component: home_component_1.HomeComponent }
             ]),
             ng2_modal_1.ModalModule,

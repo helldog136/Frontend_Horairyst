@@ -20,6 +20,7 @@ import {HttpModule} from '@angular/http';
 import {Ng2DragDropModule} from 'ng2-drag-drop';
 
 import { ModalModule } from 'ng2-modal';
+import {ConstraintEditorComponent} from "./constraint-editor/constraint_editor.component";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ModalModule } from 'ng2-modal';
         AppComponent,
         ScheduleCheckerComponent,
         ScheduleComputeComponent,
+        ConstraintEditorComponent,
         HomeComponent,
         SlotDetailComponent,
         ScheduleMatrixComponent,
@@ -38,7 +40,7 @@ import { ModalModule } from 'ng2-modal';
       RouterModule.forRoot([
         {path: 'home',        component: HomeComponent },
         {path: 'compute',     component: ScheduleComputeComponent },
-        {path: 'checker',     component: ScheduleCheckerComponent },
+        {path: 'settings',     component: ConstraintEditorComponent },
         {path: '*',           component: HomeComponent }
       ]),
       ModalModule,
