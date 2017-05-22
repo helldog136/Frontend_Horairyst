@@ -2,7 +2,7 @@
  * Created by helldog136 on 6/02/17.
  */
 import {Component, Input} from '@angular/core';
-import {Slot} from '../schedule.model.js';
+import {Slot} from '../schedule.model';
 
 @Component({
     selector: 'slot',

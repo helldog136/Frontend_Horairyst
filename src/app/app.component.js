@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var schedule_service_js_1 = require("./common/schedule.service.js");
+var schedule_service_1 = require("./common/schedule.service");
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -18,7 +18,7 @@ AppComponent = __decorate([
         selector: 'my-app',
         template: require('./app.component.html'),
         styles: [require('./app.component.css').toString()],
-        providers: [schedule_service_js_1.ScheduleService],
+        providers: [schedule_service_1.ScheduleService],
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

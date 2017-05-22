@@ -2,7 +2,7 @@
  * Created by helldog136 on 18/04/17.
  */
 import { Injectable } from '@angular/core';
-import {LinearSchedule, Schedule, ScheduleMatrix} from './schedule.model.js';
+import {LinearSchedule, Schedule, ScheduleMatrix} from './schedule.model';
 import {Http} from '@angular/http';
 
 import 'rxjs/add/operator/catch';

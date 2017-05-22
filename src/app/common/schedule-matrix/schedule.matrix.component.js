@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Created by helldog136 on 4/04/17.
  */
 var core_1 = require("@angular/core");
-var schedule_service_js_1 = require("../schedule.service.js");
+var schedule_service_1 = require("../schedule.service");
 var ScheduleMatrixComponent = (function () {
     function ScheduleMatrixComponent(scheduleService) {
         this.scheduleService = scheduleService;
@@ -93,7 +93,7 @@ ScheduleMatrixComponent = __decorate([
         template: require('./schedule.matrix.component.html'),
         styles: [require('./schedule.matrix.component.css').toString()]
     }),
-    __metadata("design:paramtypes", [schedule_service_js_1.ScheduleService])
+    __metadata("design:paramtypes", [schedule_service_1.ScheduleService])
 ], ScheduleMatrixComponent);
 exports.ScheduleMatrixComponent = ScheduleMatrixComponent;
 //# sourceMappingURL=schedule.matrix.component.js.map

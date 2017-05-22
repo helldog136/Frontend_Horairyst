@@ -3,24 +3,24 @@
  */
 
 
-import {AppComponent} from './app.component.js';
+import {AppComponent} from './app.component';
 
 import {NgModule} from '@angular/core';
-import {ScheduleCheckerComponent} from './schedule_checker/schedule_checker.component.js';
-import {ScheduleComputeComponent} from './submit/schedule_compute.component.js';
-import {HomeComponent} from './home/home.component.js';
+import {ScheduleCheckerComponent} from './schedule_checker/schedule_checker.component';
+import {ScheduleComputeComponent} from './submit/schedule_compute.component';
+import {HomeComponent} from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {FileSelectDirective, FileDropDirective} from 'ng2-file-upload';
 
-import {SlotDetailComponent} from './common/slot-details/slot.detail.component.js';
+import {SlotDetailComponent} from './common/slot-details/slot.detail.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {ScheduleMatrixComponent} from './common/schedule-matrix/schedule.matrix.component.js';
+import {ScheduleMatrixComponent} from './common/schedule-matrix/schedule.matrix.component';
 import {HttpModule} from '@angular/http';
 import {Ng2DragDropModule} from 'ng2-drag-drop';
 
 import { ModalModule } from 'ng2-modal';
-import {ConstraintEditorComponent} from './constraint-editor/constraint_editor.component.js';
+import {ConstraintEditorComponent} from './constraint-editor/constraint_editor.component';
 
 
 @NgModule({

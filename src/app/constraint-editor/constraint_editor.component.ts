@@ -2,7 +2,7 @@
  * Created by helldog136 on 17/05/17.
  */
 import {Component, OnInit} from '@angular/core';
-import {Constraint} from './constraint.model.js';
+import {Constraint} from './constraint.model';
 
 @Component({
   selector: 'constraint-editor',
