@@ -3,7 +3,7 @@
  */
 
 import {Component} from '@angular/core';
-import {Schedule} from '../common/schedule.model';
+import {Schedule} from '../common/schedule.model.js';
 import {FileUploader} from 'ng2-file-upload';
 
 @Component({

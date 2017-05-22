@@ -1,9 +1,9 @@
 /**
  * Created by helldog136 on 4/04/17.
  */
-import {Component, Input} from '@angular/core';
-import {MatrixSlot, ScheduleMatrix, Teacher} from '../schedule.model';
-import {ScheduleService} from '../schedule.service';
+import {Component} from '@angular/core';
+import {MatrixSlot, ScheduleMatrix} from '../schedule.model.js';
+import {ScheduleService} from '../schedule.service.js';
 import {Modal} from 'ng2-modal';
 
 @Component({

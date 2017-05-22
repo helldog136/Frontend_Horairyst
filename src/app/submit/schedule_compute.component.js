@@ -14,11 +14,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ng2_file_upload_1 = require("ng2-file-upload");
-var schedule_service_1 = require("../common/schedule.service");
+var schedule_service_js_1 = require("../common/schedule.service.js");
 var ScheduleComputeComponent = (function () {
     function ScheduleComputeComponent(scheduleService) {
         this.scheduleService = scheduleService;
-        this.uploader = new ng2_file_upload_1.FileUploader({ url: schedule_service_1.API_URL + '/file' });
+        this.uploader = new ng2_file_upload_1.FileUploader({ url: schedule_service_js_1.API_URL + '/file' });
         this.hasDropZoneOver = false;
         this.oldFile = null;
         this.title = 'Submit Schedule Page';
@@ -58,7 +58,7 @@ ScheduleComputeComponent = __decorate([
         template: require('./schedule_compute.component.html'),
         styles: [require('./schedule_compute.component.css').toString()]
     }),
-    __metadata("design:paramtypes", [schedule_service_1.ScheduleService])
+    __metadata("design:paramtypes", [schedule_service_js_1.ScheduleService])
 ], ScheduleComputeComponent);
 exports.ScheduleComputeComponent = ScheduleComputeComponent;
 //# sourceMappingURL=schedule_compute.component.js.map

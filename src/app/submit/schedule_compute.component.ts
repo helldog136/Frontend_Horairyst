@@ -4,7 +4,7 @@
 
 import {Component, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
-import {API_URL, ScheduleService} from '../common/schedule.service';
+import {API_URL, ScheduleService} from '../common/schedule.service.js';
 
 @Component({
     selector: 'schedule_compute',
