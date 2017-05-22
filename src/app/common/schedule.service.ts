@@ -8,7 +8,7 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-export const API_URL = 'http://localhost:4722';
+export const API_URL = 'http://backend.horairyst.deweireld.be';
 
 @Injectable()
 export class ScheduleService {
