@@ -13,7 +13,7 @@ export const API_URL = 'http://backend.horairyst.deweireld.be';
 @Injectable()
 export class ScheduleService {
   private schedule: Schedule;
-
+  private sampleInputFile: string = '';
 
   constructor(private http: Http) {}
 
@@ -73,11 +73,22 @@ export class ScheduleService {
   getSchedule(): LinearSchedule {
     return this.schedule.linear;
   }
+
   getMatrix(): ScheduleMatrix {
     return this.schedule.matrix;
   }
 
-  getSampleInputFile() {
-    return "";
+  getSampleInputFile(): string {
+    if (this.sampleInputFile === '') {
+      let that = this;
+      this.http.get(API_URL + '/sampleinput')
+        .map(res => res.toString())
+        .subscribe(
+          (data) => {that.sampleInputFile = data; },
+          (err) => console.log(err)
+        );
+    }
+    return this.sampleInputFile;
   }
+
 }
