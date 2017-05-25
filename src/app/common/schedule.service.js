@@ -69,6 +69,9 @@ var ScheduleService = (function () {
     ScheduleService.prototype.getMatrix = function () {
         return this.schedule.matrix;
     };
+    ScheduleService.prototype.getSampleInputFile = function () {
+        return "";
+    };
     return ScheduleService;
 }());
 ScheduleService = __decorate([

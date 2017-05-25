@@ -15,4 +15,8 @@ export class ConstraintEditorComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  private getConstraints(type: String): Array<Constraint> {
+    
+  }
 }

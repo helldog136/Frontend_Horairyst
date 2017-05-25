@@ -76,4 +76,8 @@ export class ScheduleService {
   getMatrix(): ScheduleMatrix {
     return this.schedule.matrix;
   }
+
+  getSampleInputFile() {
+    return "";
+  }
 }

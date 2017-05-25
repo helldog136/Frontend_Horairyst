@@ -10,13 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var schedule_service_1 = require("../common/schedule.service");
 var HomeComponent = (function () {
-    function HomeComponent() {
-        this.title = 'Home Page';
-        this.body = 'This is the about home body';
+    function HomeComponent(scheduleService) {
+        this.scheduleService = scheduleService;
+        this.title = 'Horairyst Home Page';
+        this.sampleFile = '';
+        this.sampleFile = this.scheduleService.getSampleInputFile();
     }
-    HomeComponent.prototype.ngOnInit = function () {
-    };
     return HomeComponent;
 }());
 HomeComponent = __decorate([
@@ -24,7 +25,7 @@ HomeComponent = __decorate([
         selector: 'home',
         template: require('./home.component.html')
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [schedule_service_1.ScheduleService])
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map
