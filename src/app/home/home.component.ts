@@ -5,7 +5,7 @@ import {ScheduleService} from '../common/schedule.service';
   selector: 'home',
   template: require('./home.component.html')
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   title: string = 'Horairyst Home Page';
   sampleFile: string = '';
 
