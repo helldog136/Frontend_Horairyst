@@ -55,7 +55,7 @@
     <button *ngFor="let cst of constraintService.getConstraints().weak; let i = index"
             class="cstHolder"
             [ngClass]="{g: i%2 == 0, w: i%2 == 1}"
-            (click)="setSelectedConstraint(constraintService.getConstraints().strong, i)">
+            (click)="setSelectedConstraint(constraintService.getConstraints().weak, i)">
       {{cst.constraint}}
     </button>
   </div>

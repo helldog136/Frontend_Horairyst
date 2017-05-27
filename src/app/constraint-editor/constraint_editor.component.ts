@@ -10,7 +10,12 @@ import {ConstraintService} from './constraint.service';
   template: require('./constraint_editor.component.html')
 })
 export class ConstraintEditorComponent implements OnInit {
-  private selectedConstraint: Constraint = {constraint: 'Sample Constraint', type: 'test', content: 'hello world'};
+  sampleConstraint: Constraint = {constraint: 'Sample Constraint', type: 'test',
+  content: '@testConstraint\nclass MyAwesomeConstraint(Strong/WeakConstraint):\n' +
+  '    def computeConstraint(self, problem):\n        pass\n\n    def checkValidity(self, X, Y, S, P, E, R, C):\n' +
+  '        pass\n    def getMaxValue(self, problem):\n        return 0\n' +
+  '    def getMinValue(self, problem):\n        return 0'}
+  private selectedConstraint: Constraint = Object.assign({}, this.sampleConstraint);
   private currentIndex: number = -1;
   constructor(public constraintService: ConstraintService) { }
 
