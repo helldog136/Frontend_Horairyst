@@ -24,6 +24,8 @@ var http_1 = require("@angular/http");
 var ng2_drag_drop_1 = require("ng2-drag-drop");
 var ng2_modal_1 = require("ng2-modal");
 var constraint_editor_component_1 = require("./constraint-editor/constraint_editor.component");
+var constraint_service_1 = require("./constraint-editor/constraint.service");
+var schedule_service_1 = require("./common/schedule.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -55,7 +57,8 @@ AppModule = __decorate([
             http_1.HttpModule,
             ng2_drag_drop_1.Ng2DragDropModule
         ],
-        providers: [],
+        providers: [constraint_service_1.ConstraintService,
+            schedule_service_1.ScheduleService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

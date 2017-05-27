@@ -20,7 +20,6 @@ exports.API_URL = 'http://backend.horairyst.deweireld.be';
 var ScheduleService = (function () {
     function ScheduleService(http) {
         this.http = http;
-        this.sampleInputFile = '';
     }
     ScheduleService.prototype.hasSchedule = function () {
         return this.schedule != null;
@@ -70,14 +69,8 @@ var ScheduleService = (function () {
     ScheduleService.prototype.getMatrix = function () {
         return this.schedule.matrix;
     };
-    ScheduleService.prototype.getSampleInputFile = function () {
-        if (this.sampleInputFile === '') {
-            var that_3 = this;
-            this.http.get(exports.API_URL + '/sampleinput')
-                .map(function (res) { return res.toString(); })
-                .subscribe(function (data) { that_3.sampleInputFile = data; }, function (err) { return console.log(err); });
-        }
-        return this.sampleInputFile;
+    ScheduleService.prototype.getLatex = function () {
+        return this.schedule.latex;
     };
     return ScheduleService;
 }());

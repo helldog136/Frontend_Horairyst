@@ -14,7 +14,7 @@
 
 #header h1#logo a {
   background: url(../images/logo.png) no-repeat top left;
-  width: 194px;
+  width: 223px;
   height: 48px;
   margin: 8px;
   display: block;
@@ -35,7 +35,7 @@
 
 #header #menu {float:left;padding:17px 40px 0 0;}
 
-#container {padding:100px 20px 20px 20px;}
+#container {padding:80px 10px 10px 10px;}
 
 .color {
   background-color: rgba(195, 30, 30, 0.9) !important;

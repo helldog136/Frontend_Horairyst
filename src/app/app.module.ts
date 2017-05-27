@@ -21,6 +21,8 @@ import {Ng2DragDropModule} from 'ng2-drag-drop';
 
 import { ModalModule } from 'ng2-modal';
 import {ConstraintEditorComponent} from './constraint-editor/constraint_editor.component';
+import {ConstraintService} from "./constraint-editor/constraint.service";
+import {ScheduleService} from "./common/schedule.service";
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import {ConstraintEditorComponent} from './constraint-editor/constraint_editor.c
       HttpModule,
       Ng2DragDropModule
     ],
-    providers: [],
+    providers: [ConstraintService,
+                ScheduleService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

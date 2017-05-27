@@ -12,11 +12,15 @@ import {API_URL} from '../common/schedule.service';
 
 @Injectable()
 export class ConstraintService {
-  private constraints: {strong: Array<Constraint>
-                        weak: Array<Constraint>};
+  public constraints: any;
 
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+    this.constraints = {strong: [],
+                        weak: []};
+    this.getStrongConstraints();
+    this.getWeakConstraints();
+  }
 
   hasConstraints(): boolean {
     return this.constraints != null;
@@ -30,44 +34,70 @@ export class ConstraintService {
   }
 
   clear(): void {
-    this.constraints = null;
+    this.constraints.strong.splice(0, this.constraints.strong.length);
+    this.constraints.weak.splice(0, this.constraints.weak.length);
   }
 
   getStrongConstraints(): void {
     let that = this;
-    this.http.get(API_URL + '/strongconstraints')
-      .map(res => res.json())
-      .subscribe(
-        (data) => {that.constraints.strong = data; },
-        (err) => console.log(err)
-      );
+    fetch(API_URL + '/strongconstraints').then((response) => {
+      return response.json();
+    }).then(
+      (data) => {that.constraints.strong = data; }
+    ).catch((ex) => {
+      console.error('Error fetching strongconstraints', ex);
+    });
+    // this.http.get(API_URL + '/strongconstraints')
+    //   .map(res => res.json())
+    //   .subscribe(
+    //     (data) => {that.constraints.strong = data; },
+    //     (err) => console.log(err)
+    //   );
   }
   getWeakConstraints(): void {
     let that = this;
-    this.http.get(API_URL + '/weakconstraints')
-      .map(res => res.json())
-      .subscribe(
-        (data) => {that.constraints.weak = data; },
-        (err) => console.log(err)
-      );
+    fetch(API_URL + '/weakconstraints').then((response) => {
+      return response.json();
+    }).then(
+      (data) => {that.constraints.weak = data; }
+    ).catch((ex) => {
+      console.error('Error fetching weakconstraints', ex);
+    });
+
+    // this.http.get(API_URL + '/weakconstraints')
+    //   .map(res => res.json())
+    //   .subscribe(
+    //     (data) => {that.constraints.weak = data; },
+    //     (err) => console.log(err)
+    //   );
   }
 
-  getConstraints(): any{
+  getConstraints(): any {
     return this.constraints;
   }
 
 
   sendStrongConstraints(): void {
     if (this.hasConstraints()) {
-      this.http.post(API_URL + '/strongconstraints', this.constraints.strong);
+      this.http.post(API_URL + '/strongconstraints', this.constraints.strong)
+        .map(res => res.json())
+        .subscribe(
+          (data) => {},
+          (err) => console.log(err)
+        );
     }else {
       console.log('no Schedule!!!');
     }
   }
 
-  sendWeakConstraints(): void {//TODO
+  sendWeakConstraints(): void {// TODO
     if (this.hasConstraints()) {
-      this.http.post(API_URL + '/weakconstraints', this.constraints.weak);
+      this.http.post(API_URL + '/weakconstraints', this.constraints.weak)
+        .map(res => res.json())
+        .subscribe(
+          (data) => {},
+          (err) => console.log(err)
+        );
     }else {
       console.log('no Schedule!!!');
     }

@@ -1,12 +1,65 @@
-EDITOR
-<div id="sidebar">
-  <div *ngFor="let cst of getConstraints('strong')">
+<style>
+  #sidebar {
+    border: 1px solid black;
+    border-right: 0px;
+    margin-inside: 2px;
+    float:left;
+    width:20%;
+    height: 600px;
+    overflow:hidden;
+  }
+  #editor{
+    border: 1px solid black;
+    float:left;
+    width:79%;
+    height: 600px;
+    overflow:hidden;
+  }
+  textarea {
+    border: 3px black;
+    margin: 3px;
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+  }
+  .g {
+    background-color: #F0F0F0;
+  }
+  .w {
+    background-color: white;
+  }
+  button {
+    border: 1px black;
+    width: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+  }
 
+
+  html, body { height: 100%; }
+</style>
+<div id="container">
+  <div id="sidebar">
+    <button (click)="saveChanges()">Save Changes</button>
+    <p>Strong Constraints:</p>
+    <button *ngFor="let cst of constraintService.getConstraints().strong; let i = index"
+            class="cstHolder"
+            [ngClass]="{g: i%2 == 0, w: i%2 == 1}"
+            (click)="setSelectedConstraint(constraintService.getConstraints().strong, i)">
+      {{cst.constraint}}
+    </button>
+    <p>Weak Constraints:</p>
+    <button *ngFor="let cst of constraintService.getConstraints().weak; let i = index"
+            class="cstHolder"
+            [ngClass]="{g: i%2 == 0, w: i%2 == 1}"
+            (click)="setSelectedConstraint(constraintService.getConstraints().strong, i)">
+      {{cst.constraint}}
+    </button>
   </div>
-</div>
-
-<div id="editor">
-  <textarea rows="80" cols="80">
-    {{selectedConstraint.content}}
-  </textarea>
+  <div id="editor">
+      <textarea id="editorArea" [(ngModel)]="selectedConstraint.content"></textarea>
+  </div>
 </div>

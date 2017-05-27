@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ScheduleService} from '../common/schedule.service';
+import {API_URL, ScheduleService} from '../common/schedule.service';
 
 @Component({
   selector: 'home',
@@ -10,7 +10,14 @@ export class HomeComponent {
   sampleFile: string = '';
 
   constructor(private scheduleService: ScheduleService) {
-    this.sampleFile = this.scheduleService.getSampleInputFile();
+    let that = this;
+    fetch(API_URL + '/sampleinput').then((response) => {
+      return response.text();
+    }).then(
+      (data) => {that.sampleFile = data; }
+    ).catch((ex) => {
+      console.error('Error fetching sample input', ex);
+    });
   }
 
 }

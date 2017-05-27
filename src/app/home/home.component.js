@@ -16,7 +16,12 @@ var HomeComponent = (function () {
         this.scheduleService = scheduleService;
         this.title = 'Horairyst Home Page';
         this.sampleFile = '';
-        this.sampleFile = this.scheduleService.getSampleInputFile();
+        var that = this;
+        fetch(schedule_service_1.API_URL + '/sampleinput').then(function (response) {
+            return response.text();
+        }).then(function (data) { that.sampleFile = data; }).catch(function (ex) {
+            console.error('Error fetching sample input', ex);
+        });
     }
     return HomeComponent;
 }());
