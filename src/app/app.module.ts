@@ -6,7 +6,6 @@
 import {AppComponent} from './app.component';
 
 import {NgModule} from '@angular/core';
-import {ScheduleCheckerComponent} from './schedule_checker/schedule_checker.component';
 import {ScheduleComputeComponent} from './submit/schedule_compute.component';
 import {HomeComponent} from './home/home.component';
 import {RouterModule} from '@angular/router';
@@ -21,14 +20,13 @@ import {Ng2DragDropModule} from 'ng2-drag-drop';
 
 import { ModalModule } from 'ng2-modal';
 import {ConstraintEditorComponent} from './constraint-editor/constraint_editor.component';
-import {ConstraintService} from "./constraint-editor/constraint.service";
-import {ScheduleService} from "./common/schedule.service";
+import {ConstraintService} from './constraint-editor/constraint.service';
+import {ScheduleService} from './common/schedule.service';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        ScheduleCheckerComponent,
         ScheduleComputeComponent,
         ConstraintEditorComponent,
         HomeComponent,

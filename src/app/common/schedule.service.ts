@@ -69,8 +69,8 @@ export class ScheduleService {
     }
   }
 
-  getSchedule(): LinearSchedule {
-    return this.schedule.linear;
+  getSchedule(): Schedule {
+    return this.schedule;
   }
 
   getMatrix(): ScheduleMatrix {

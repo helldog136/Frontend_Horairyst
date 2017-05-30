@@ -64,7 +64,7 @@ var ScheduleService = (function () {
         }
     };
     ScheduleService.prototype.getSchedule = function () {
-        return this.schedule.linear;
+        return this.schedule;
     };
     ScheduleService.prototype.getMatrix = function () {
         return this.schedule.matrix;

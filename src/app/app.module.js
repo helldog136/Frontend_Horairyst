@@ -11,7 +11,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var app_component_1 = require("./app.component");
 var core_1 = require("@angular/core");
-var schedule_checker_component_1 = require("./schedule_checker/schedule_checker.component");
 var schedule_compute_component_1 = require("./submit/schedule_compute.component");
 var home_component_1 = require("./home/home.component");
 var router_1 = require("@angular/router");
@@ -35,7 +34,6 @@ AppModule = __decorate([
     core_1.NgModule({
         declarations: [
             app_component_1.AppComponent,
-            schedule_checker_component_1.ScheduleCheckerComponent,
             schedule_compute_component_1.ScheduleComputeComponent,
             constraint_editor_component_1.ConstraintEditorComponent,
             home_component_1.HomeComponent,

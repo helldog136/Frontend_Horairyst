@@ -25,6 +25,7 @@ export interface Validity {
 }
 
 export interface Schedule {
+  value: number;
   linear: LinearSchedule;
   matrix: ScheduleMatrix;
   latex: string;
