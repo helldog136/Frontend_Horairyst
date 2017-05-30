@@ -66,6 +66,14 @@ var ScheduleService = (function () {
     ScheduleService.prototype.getSchedule = function () {
         return this.schedule;
     };
+    ScheduleService.prototype.getScheduleValue = function () {
+        if (this.schedule.value == null) {
+            return "Unknown";
+        }
+        else {
+            return this.schedule.value.toString();
+        }
+    };
     ScheduleService.prototype.getMatrix = function () {
         return this.schedule.matrix;
     };

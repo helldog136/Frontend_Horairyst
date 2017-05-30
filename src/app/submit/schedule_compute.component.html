@@ -46,7 +46,7 @@
   </div>
 </div>
   <div *ngIf="scheduleService.hasSchedule()">
-    <button (click)="reoptimize()">Optimize current Schedule (current value: {{scheduleService.getSchedule().value}}</button>
+    <button (click)="reoptimize()">Optimize current Schedule (Current value: {{scheduleService.getScheduleValue()}})</button>
     <button (click)="clipBoardIt()">Copy as LaTeX to Clipboard</button>
   </div>
 </div>

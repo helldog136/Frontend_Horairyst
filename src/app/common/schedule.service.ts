@@ -73,6 +73,14 @@ export class ScheduleService {
     return this.schedule;
   }
 
+  getScheduleValue(): string {
+    if (this.schedule.value == null){
+      return "Unknown";
+    }else {
+      return this.schedule.value.toString();
+    }
+  }
+
   getMatrix(): ScheduleMatrix {
     return this.schedule.matrix;
   }
