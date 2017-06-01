@@ -69,11 +69,21 @@ var ConstraintService = (function () {
     ConstraintService.prototype.getConstraints = function () {
         return this.constraints;
     };
+    ConstraintService.prototype.reload = function () {
+        var that = this;
+        fetch(schedule_service_1.API_URL + '/reloadMods').then(function (response) {
+            setTimeout(that.getStrongConstraints, 500);
+            setTimeout(that.getWeakConstraints, 500);
+        }).catch(function (ex) {
+            console.error('Error reloading constraints', ex);
+        });
+    };
     ConstraintService.prototype.sendStrongConstraints = function () {
         if (this.hasConstraints()) {
+            var that_1 = this;
             this.http.post(schedule_service_1.API_URL + '/strongconstraints', this.constraints.strong)
                 .map(function (res) { return res.json(); })
-                .subscribe(function (data) { }, function (err) { return console.log(err); });
+                .subscribe(function (data) { setTimeout(that_1.getStrongConstraints, 300); }, function (err) { return console.log(err); });
         }
         else {
             console.log('no Schedule!!!');
@@ -81,9 +91,10 @@ var ConstraintService = (function () {
     };
     ConstraintService.prototype.sendWeakConstraints = function () {
         if (this.hasConstraints()) {
+            var that_2 = this;
             this.http.post(schedule_service_1.API_URL + '/weakconstraints', this.constraints.weak)
                 .map(function (res) { return res.json(); })
-                .subscribe(function (data) { }, function (err) { return console.log(err); });
+                .subscribe(function (data) { setTimeout(that_2.getWeakConstraints, 300); }, function (err) { return console.log(err); });
         }
         else {
             console.log('no Schedule!!!');

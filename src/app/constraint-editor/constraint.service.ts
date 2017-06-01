@@ -76,13 +76,24 @@ export class ConstraintService {
     return this.constraints;
   }
 
+  reload(): any {
+    let that = this;
+    fetch(API_URL + '/reloadMods').then((response) => {
+      setTimeout(that.getStrongConstraints, 500);
+      setTimeout(that.getWeakConstraints, 500);
+    }).catch((ex) => {
+      console.error('Error reloading constraints', ex);
+    });
+  }
+
 
   sendStrongConstraints(): void {
     if (this.hasConstraints()) {
+      let that = this;
       this.http.post(API_URL + '/strongconstraints', this.constraints.strong)
         .map(res => res.json())
         .subscribe(
-          (data) => {},
+          (data) => {setTimeout(that.getStrongConstraints, 300); },
           (err) => console.log(err)
         );
     }else {
@@ -90,12 +101,13 @@ export class ConstraintService {
     }
   }
 
-  sendWeakConstraints(): void {// TODO
+  sendWeakConstraints(): void {
     if (this.hasConstraints()) {
+      let that = this;
       this.http.post(API_URL + '/weakconstraints', this.constraints.weak)
         .map(res => res.json())
         .subscribe(
-          (data) => {},
+          (data) => {setTimeout(that.getWeakConstraints, 300); },
           (err) => console.log(err)
         );
     }else {
